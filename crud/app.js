@@ -14,6 +14,19 @@ class Student {
   }
 }
 
+function populate() {
+  $("#students-list").empty();
+  for(s in students){
+    studentListItem(students[s]);
+  }
+}
+
+function removeStudent(student) {
+  console.log("Removing " + student.titleString());
+  var idx = students.indexOf(student);
+  students.splice(idx,1);
+  populate();
+}
 
 function studentListItem(student) {
   // <div class="ui styled fluid accordion">
@@ -26,31 +39,48 @@ function studentListItem(student) {
   //   </div>
   // </div>
   var studentDiv = $(document.createElement("div"))
-  // Build HTML that fits the above pattern. Use jQuery tools to help.
-  // Append the resulting HTML to #students-list.
+  studentDiv.addClass("ui styled fluid accordion");
+  studentDiv
+    .append(
+      $(document.createElement("div"))
+        .addClass("title")
+        .append(
+          $(document.createElement("i"))
+            .addClass("dropdown icon")
+        )
+        .append(student.titleString())
+    );
+  studentDiv
+    .append(
+      $(document.createElement("div"))
+        .addClass("content")
+        .append(
+          $(document.createElement("p"))
+            .text("Just another student.")
+        )
+        .append(
+          $(document.createElement("button"))
+            .addClass("negative ui button remove")
+            .text("Remove")
+        )
+    )
+  studentDiv.data("student",student);
+  studentDiv.find(".remove").click(function(){
+    removeStudent($(this).parent().parent().data("student"));
+  });
+  $("#students-list").append(studentDiv);
   $('.ui.accordion')
     .accordion();
 }
 
-function updateList() {
-  $("#students-list").empty();
-  // Rebuild Student List Items for each student.
-  // Re-add event listeners to remove buttons.
-  $(".remove").click(function(){
-    removeStudent($(this).data("student"));
-  });
-}
-
-function removeStudent(student) {
-  // Remove student from students array.
-  // Update the list to reflect the change.
-}
-
 $("#add-student").submit(function(e) {
   e.preventDefault();
-  // Get values from form
-  // Make a Student object out of the results
-  // Push results to array
-  // Add HTML to the list
-  // Clear form
+  let first = $("#first-name").val();
+  let last = $("#last-name").val();
+  let year = $("#year").val();
+  let s = new Student(first,last,year);
+  console.log(s);
+  students.push(s);
+  studentListItem(s);
+  $("input").val("");
 });
