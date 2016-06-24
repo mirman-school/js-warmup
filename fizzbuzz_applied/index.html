@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1>FizzBuzz Applied</h1>
+    <div id="description">
+      <h2>Objective</h2>
+      <p>
+        Write FizzBuzz. In FizzBuzz, a function
+        <code>fizzbuzz()</code> takes an argument
+        <code>n</code> and does the following:
+      </p>
+      <ul>
+        <li>If divisble by 3, returns "Fizz"</li>
+        <li>If divisble by 5, returns "Buzz"</li>
+        <li>If divisble by 3 and 5, returns "FizzBuzz"</li>
+        <li>Otherwise, return <code>null</code></li>
+      </ul>
+      <p>
+        That's FizzBuzz. But that has nothing to do with
+        The DOM, so we're not finished.
+      </p>
+      <p>
+        Below, you will find 3 <code>&lt;div&gt;</code> elements,
+        each with a unique <code>&lt;ul&gt;</code> for results.
+        Each <code>&lt;ul&gt;</code> has a specific ID we can use
+        to "capture" it with JavaScript.
+      </p>
+      <p>
+        So after writing a working <code>fizzbuzz()</code>, your
+        next job is to take the results from 1 to 50 and
+        append them to the appropriate list.
+      </p>
+    </div>
+    <div class="list-container">
+      <h2>Fizz</h2>
+      <ul id="fizzes">
+      </ul>
+    </div>
+    <div class="list-container">
+      <h2>Buzz</h2>
+      <ul id="buzzes">
+      </ul>
+    </div>
+    <div class="list-container">
+      <h2>FizzBuzz</h2>
+      <ul id="fizzbuzzes">
+      </ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

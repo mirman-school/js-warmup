@@ -1,0 +1,15 @@
+code {
+  font-family: "Consolas", "Courier";
+  background: black;
+  color: white;
+  padding: 2px 1px;
+}
+
+.list-container {
+  display: inline-block;
+  width: 30%;
+  background: #646464;
+  color: white;
+  padding: 0% 1%;
+  vertical-align: top;
+}
