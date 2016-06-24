@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css"  />
+    <link rel="stylesheet" href="main.css"  />
+  </head>
+  <body>
+    <div class="ui segment container">
+      <form class="ui form" id="add-student">
+        <h2>Add Student</h2>
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" id="first-name" name="first-name" placeholder="First Name">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text"id="last-name" name="last-name" placeholder="Last Name">
+        </div>
+        <div class="field">
+          <label>Year</label>
+          <input type="number" id="year" name="year" min="2000" max="2024">
+        </div>
+        <button class="ui button" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="ui segment container" id="students-list">
+      <h2>Students</h2>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+    <script>
+      $('.ui.accordion')
+        .accordion();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
